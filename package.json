@@ -1,6 +1,6 @@
 {
   "name": "serillel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lib to handle async tasks with serial and parallel flow.",
   "main": "./lib/index.js",
   "scripts": {
