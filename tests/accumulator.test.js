@@ -28,14 +28,19 @@ describe('Unit: Accumulator', function () {
     })
   })
   describe('accumulated', function () {
-    const err = new Error()
-    const value = 'foo'
-    const accumulator = new Accumulator()
-    accumulator.fulfilled(value)
-    accumulator.rejected(err)
-    const actual = accumulator.accumulated()
-    expect(actual).to.have.all.keys([ 'success', 'errors' ])
-    expect(actual.success).to.deep.equal([ value ])
-    expect(actual.errors).to.deep.equal([ err ])
+    it('should return accumulated tasks result', function () {
+      const err = new Error()
+      const value = 'foo'
+      const accumulator = new Accumulator()
+
+      accumulator.fulfilled(value)
+      accumulator.rejected(err)
+
+      const actual = accumulator.accumulated()
+
+      expect(actual).to.have.all.keys([ 'success', 'errors' ])
+      expect(actual.success).to.deep.equal([ value ])
+      expect(actual.errors).to.deep.equal([ err ])
+    })
   })
 })
